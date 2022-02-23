@@ -1,26 +1,63 @@
-# Use the latest 2.1 version of CircleCI pipeline process engine.
-# See: https://circleci.com/docs/2.0/configuration-reference
-version: 2.1
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Currency Converter</title>
+    <!-- css file -->
+    <link rel = "stylesheet" href = "style.css">
+</head>
+<body>
+    
 
-# Define a job to be invoked later in a workflow.
-# See: https://circleci.com/docs/2.0/configuration-reference/#jobs
-jobs:
-  say-hello:
-    # Specify the execution environment. You can specify an image from Dockerhub or use one of our Convenience Images from CircleCI's Developer Hub.
-    # See: https://circleci.com/docs/2.0/configuration-reference/#docker-machine-macos-windows-executor
-    docker:
-      - image: cimg/base:stable
-    # Add steps to the job
-    # See: https://circleci.com/docs/2.0/configuration-reference/#steps
-    steps:
-      - checkout
-      - run:
-          name: "Say hello"
-          command: "echo Hello, World!"
+    <div class = "wrapper">
+        <div class = "blue-bg"></div>
+        <div class = "white-bg"></div>
 
-# Invoke jobs via workflows
-# See: https://circleci.com/docs/2.0/configuration-reference/#workflows
-workflows:
-  say-hello-workflow:
-    jobs:
-      - say-hello
+        <div class = "converter-wrapper">
+            <h2>Currency Converter</h2>
+            <!-- converter inputs -->
+            <div class = "converter-inputs">
+                <div class = "from-amount">
+                    <label for = "">Amount</label>
+                    <input type = "number" class = "form-control" placeholder="$" min = "0" value = "1">
+                </div>
+                <div class = "from-currency">
+                    <label for = "">From</label>
+                    <select>
+                        <!-- <option>USD</option> -->
+                    </select> 
+                </div>
+                <div class = "icon">
+                    <button type = "button" id = "swap-btn">
+                        <img src = "exchange.png">
+                    </button>
+                </div>
+                <div class = "to-currency">
+                    <label for = "">To</label>
+                    <select>
+                        <!-- <option>USD</option> -->
+                    </select>
+                </div>
+            </div>
+
+            <!-- converted result -->
+            <div class = "result-wrapper">
+                <p>
+                    <span id = "from-result"></span>
+                    =
+                    <span id = "to-result"></span>
+                </p>
+            </div>
+            <button type = "button" id = "convert-btn">convert</button>
+        </div>
+    </div>
+
+ 
+
+
+    <!-- js file -->
+    <script src = "script.js"></script>
+</body>
+</html>
